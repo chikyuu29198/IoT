@@ -231,6 +231,35 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  <script defer src="/__/firebase/7.5.0/firebase-app.js"></script>
+  <script defer src="/__/firebase/7.5.0/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      firebase.database().ref('/').limitToLast(50).on('value', snapshot => {
+        let data = snapshot.val();
+        console.log(typeof data);
+        console.log(data);
+        
+        data = JSON.parse(JSON.stringify(data));
+        // console.log(data);
+        // console.log(data[0].time);
+        // for (var i=0; i < data.length; i++){
+        //   console.log(data[i].bmp.temp);
+        // }
+        var arr1 = [];
+        var arr2 = [];
+        Object.keys(data).forEach((key) => {
+          console.log(data[key].bmp.temp);
+          arr1.push(data[key].bmp.temp);
+          arr2.push(data[key].dht.temp);
+        });
+        console.log(arr1);
+        console.log(arr2);
 
+      });
+    });
+  </script>
+  <!-- <script src="js/drawplot.js"></script> -->
 </body>
 </html>
