@@ -126,7 +126,7 @@
           </div>
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-            <div class="box" id="chartCanvas">
+            <div class="box" id="chartContainer">
               <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
               <h4 class="title"><a href="">Compare DHT22 </br>and GY-68 BMP180</a></h4>
               <p class="description">Comparing data from DHT22 and GY-68 BMP180 by Bland-Altman plot.</p>
@@ -250,60 +250,42 @@
         // }
         var arr1 = [];
         var arr2 = [];
+        var time = [];
         Object.keys(data).forEach((key) => {
           console.log(data[key].bmp.temp);
           arr1.push(data[key].bmp.temp);
           arr2.push(data[key].dht.temp);
+          time.push(data[key].time);
         });
         console.log(arr1);
         console.log(arr2);
-
-
-        const ctx = document.getElementById('chartCanvas').getContext('2d');
-const data1 = {
-    // Labels should be Date objects
-    labels: [new Date(2017, 08, 16), new Date(2017, 08, 17), new Date(2017, 08, 18)],
-    datasets: [{
-        fill: false,
-        label: 'Page Views',
-        data: arr1,
-        borderColor: '#fe8b36',
-        backgroundColor: '#fe8b36',
-        lineTension: 0,
-    }]
-}
-const options = {
-    type: 'line',
-    data: data1,
-    options: {
-        fill: false,
-        responsive: true,
-        scales: {
-            xAxes: [{
-                type: 'time',
-                display: true,
-                scaleLabel: {
-                    display: true,
-                    labelString: "Date",
-                }
-            }],
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true,
-                },
-                display: true,
-                scaleLabel: {
-                    display: true,
-                    labelString: "Page Views",
-                }
-            }]
+        console.log(time);
+        var dps = [];
+        for (var i = 0; i < arr1.length; i++){
+          dps.push({
+             x: time[i],
+             y: arr1[i]
+          })
         }
+        window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+        title: {
+          text: "Data Plotted from Array"
+        },
+        axisX: {
+          title: "Axis X Title"
+        },
+        axisY: {
+          title: "Units"
+        },
+        data: [{
+          type: "line",
+          dataPoints: dps
+        }]
+      });
+      chart.render();
+
     }
-}
-const chart = new Chart(ctx, options);
-
-
-
 
 
       });
