@@ -126,15 +126,15 @@
           </div>
 
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-            <div class="box" id="chartContainer">
+            <div class="box">
               <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
               <h4 class="title"><a href="">Compare DHT22 </br>and GY-68 BMP180</a></h4>
               <p class="description">Comparing data from DHT22 and GY-68 BMP180 by Bland-Altman plot.</p>
             </div>
           </div>
         </div>
-
       </div>
+      <canvas id="chartContainer"></canvas>
     </section><!-- #services -->
 
     <!--==========================
@@ -242,15 +242,15 @@
         console.log(typeof data);
         console.log(data);
         
-        data = JSON.parse(JSON.stringify(data));
+        // data = JSON.parse(JSON.stringify(data));
         // console.log(data);
         // console.log(data[0].time);
         // for (var i=0; i < data.length; i++){
         //   console.log(data[i].bmp.temp);
         // }
-        var arr1 = [];
-        var arr2 = [];
-        var time = [];
+        let arr1 = [];
+        let arr2 = [];
+        let time = [];
         Object.keys(data).forEach((key) => {
           console.log(data[key].bmp.temp);
           arr1.push(data[key].bmp.temp);
@@ -260,33 +260,86 @@
         console.log(arr1);
         console.log(arr2);
         console.log(time);
-        var dps = [];
-        for (var i = 0; i < arr1.length; i++){
-          dps.push({
-             x: time[i],
-             y: arr1[i]
-          })
-        }
-        window.onload = function () {
-        var chart = new CanvasJS.Chart("chartContainer", {
-        title: {
-          text: "Data Plotted from Array"
-        },
-        axisX: {
-          title: "Axis X Title"
-        },
-        axisY: {
-          title: "Units"
-        },
-        data: [{
-          type: "line",
-          dataPoints: dps
-        }]
-      });
-      chart.render();
+      //   var dps = [];
+      //   for (var i = 0; i < arr1.length; i++){
+      //     dps.push({
+      //        x: time[i],
+      //        y: arr1[i]
+      //     })
+      //   }
+      //   window.onload = function () {
+      //   var chart = new CanvasJS.Chart("chartContainer", {
+      //   title: {
+      //     text: "Data Plotted from Array"
+      //   },
+      //   axisX: {
+      //     title: "Axis X Title"
+      //   },
+      //   axisY: {
+      //     title: "Units"
+      //   },
+      //   data: [{
+      //     type: "line",
+      //     dataPoints: dps
+      //   }]
+      // });
+      // chart.render();
 
-    }
+    // }
 
+    let chartConfig = {
+          type: 'line',
+          data: {
+            labels: time,
+            datasets: [{
+              label: 'BMP',
+              backgroundColor: 'red',
+              borderColor: 'red',
+              data: arr1,
+              fill: false,
+            }, {
+              label: 'DHT',
+              fill: false,
+              backgroundColor: 'blue',
+              borderColor: 'blue',
+              data: arr2,
+            }]
+          },
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: 'Temperature Line Chart'
+            },
+            tooltips: {
+              mode: 'index',
+              intersect: false,
+            },
+            hover: {
+              mode: 'nearest',
+              intersect: true
+            },
+            scales: {
+              xAxes: [{
+                display: true,
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Time'
+                }
+              }],
+              yAxes: [{
+                display: true,
+                scaleLabel: {
+                  display: true,
+                  labelString: '*C'
+                }
+              }]
+            }
+          }
+        };
+
+        let ctx = document.getElementById("chartContainer").getContext('2d');
+        let chart = new Chart(ctx, chartConfig);
 
       });
     });
