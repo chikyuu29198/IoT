@@ -15,6 +15,13 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+canvas {
+  margin: 0 auto;
+  width: 800px !important;
+  height: 500px !important;
+  background: #fff;
+}
+
 a {
   color: #1bb1dc;
   transition: 0.5s;
