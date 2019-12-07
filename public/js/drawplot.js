@@ -187,11 +187,4 @@ let chartConfig2 = {
 });
 
 
-$("html").click(function (event) {
-  $("div.popup").hide();
-});
 
-$('a').click(function (event) {
-  $($(this).attr('href')).toggle();
-  return false;
-});

@@ -109,9 +109,21 @@
           <div class="row">
   
             <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-              <div class="box" id="showchart1" onclick="myFunction()">
+              <div class="box">
                 <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
-                <h4 class="title"><a id="press" href="">Pressure</a></h4>
+                <h4 class="title">
+                  <script language="javascript">
+                    var popupWindow = null;
+                    function centeredPopup(url,winName,w,h,scroll){
+                    LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+                    TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+                    settings =
+                    'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+                    popupWindow = window.open(url,winName,settings)
+                    }
+                    </script>
+                    <p><a href="pressure.html" onclick="centeredPopup(this.href,'pressure','800','500','no');return false">Pressure</a></p>
+                </h4>
                 <div></br></div>
                 <p class="description">Visualize data from DHT22 temperature humidity sensor by Sparkline chart.</p>
               </div>
@@ -119,7 +131,19 @@
             <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
               <div class="box">
                 <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
-                <h4 class="title"><a href="">Temperature</a></h4>
+                <h4 class="title">
+                    <script language="javascript">
+                      var popupWindow = null;
+                      function centeredPopup(url,winName,w,h,scroll){
+                      LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+                      TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+                      settings =
+                      'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+                      popupWindow = window.open(url,winName,settings)
+                      }
+                      </script>
+                      <p><a href="temperature.html" onclick="centeredPopup(this.href,'pressure','800','500','no');return false">Temperature</a></p>
+                  </h4>
                 <div></br></div>
                 <p class="description">Visualize data from GY-68 BMP180 digital barometric pressure sensor by Sparkline chart.</p>
               </div>
@@ -128,7 +152,19 @@
             <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
               <div class="box">
                 <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
-                <h4 class="title"><a href="">Humidity</a></h4>
+                <h4 class="title">
+                    <script language="javascript">
+                      var popupWindow = null;
+                      function centeredPopup(url,winName,w,h,scroll){
+                      LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+                      TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+                      settings =
+                      'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+                      popupWindow = window.open(url,winName,settings)
+                      }
+                      </script>
+                      <p><a href="humidity.html" onclick="centeredPopup(this.href,'humidity','800','500','no');return false">Humidity</a></p>
+                  </h4>
                 <p class="description">Comparing data from DHT22 and GY-68 BMP180 by Bland-Altman plot.</p>
               </div>
             </div>
@@ -137,27 +173,10 @@
         </div>
       </section><!-- #services -->
 
-    <!--==========================
-      Services Section
-    ============================-->
-    <section id="services" class="section-bg">
-      <canvas id="chart1"></canvas>
-      <div>
-      </br>  
-      </br>
-      </br>
-      </div>
-      <canvas id="chart2"></canvas>
-      <div>
-      </br>  
-      </br>
-      </br>
-      </div>
-      <canvas id="chart3"></canvas>
-    </section><!-- #services -->
+
 
     <!--==========================
-      Clients Section
+      Team Section
     ============================-->
     <section id="team">
       <div class="container">
