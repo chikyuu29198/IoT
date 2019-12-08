@@ -102,8 +102,8 @@
   
           <header class="section-header">
             <h3>Services</h3>
-            <p>Visualize the Internet of Things.</br>
-              Ridiculously simple dashboards for your devices.</p>
+            <p>Visualize the Internet of Things.</p>
+            <p id="latest"></p>
           </header>
   
           <div class="row">
@@ -111,21 +111,20 @@
             <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
               <div class="box">
                 <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
-                <h4 class="title">
-                  <script language="javascript">
-                    var popupWindow = null;
-                    function centeredPopup(url,winName,w,h,scroll){
-                    LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
-                    TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
-                    settings =
-                    'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
-                    popupWindow = window.open(url,winName,settings)
-                    }
-                    </script>
-                    <p><a href="pressure.html" onclick="centeredPopup(this.href,'pressure','800','500','no');return false">Pressure</a></p>
-                </h4>
-                <div></br></div>
-                <p class="description">Visualize data from DHT22 temperature humidity sensor by Sparkline chart.</p>
+                  <h4 class="title">
+                    <script language="javascript">
+                      var popupWindow = null;
+                      function centeredPopup1(url,winName,w,h,scroll){
+                      LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+                      TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+                      settings =
+                      'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+                      popupWindow = window.open(url,winName,settings)
+                      }
+                      </script>
+                      <p><a href="pressure.html" onclick="centeredPopup1(this.href,'pressure','800','500','no');return false">Pressure</a></p>
+                  </h4>
+                <p class="description">Visualize pressure data from GY68 - BMP180 digital barometric pressure sensor by time-series chart.</p>
               </div>
             </div>
             <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
@@ -134,7 +133,7 @@
                 <h4 class="title">
                     <script language="javascript">
                       var popupWindow = null;
-                      function centeredPopup(url,winName,w,h,scroll){
+                      function centeredPopup2(url,winName,w,h,scroll){
                       LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
                       TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
                       settings =
@@ -142,10 +141,9 @@
                       popupWindow = window.open(url,winName,settings)
                       }
                       </script>
-                      <p><a href="temperature.html" onclick="centeredPopup(this.href,'pressure','800','500','no');return false">Temperature</a></p>
+                      <p><a href="temperature.html" onclick="centeredPopup2(this.href,'temperature','800','500','no');return false">Temperature</a></p>
                   </h4>
-                <div></br></div>
-                <p class="description">Visualize data from GY-68 BMP180 digital barometric pressure sensor by Sparkline chart.</p>
+                <p class="description">Visualize temperature data from DHT22 and GY68 - BMP180 sensor by time-series chart.</p>
               </div>
             </div>
   
@@ -155,7 +153,7 @@
                 <h4 class="title">
                     <script language="javascript">
                       var popupWindow = null;
-                      function centeredPopup(url,winName,w,h,scroll){
+                      function centeredPopup3(url,winName,w,h,scroll){
                       LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
                       TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
                       settings =
@@ -163,16 +161,15 @@
                       popupWindow = window.open(url,winName,settings)
                       }
                       </script>
-                      <p><a href="humidity.html" onclick="centeredPopup(this.href,'humidity','800','500','no');return false">Humidity</a></p>
+                      <p><a href="humidity.html" onclick="centeredPopup3(this.href,'humidity','800','500','no');return false">Humidity</a></p>
                   </h4>
-                <p class="description">Comparing data from DHT22 and GY-68 BMP180 by Bland-Altman plot.</p>
+                <p class="description">Visualize humidity data from DHT22 temperature humidity sensor by time-series chart.</p>
               </div>
             </div>
           </div>
   
         </div>
       </section><!-- #services -->
-
 
 
     <!--==========================
@@ -267,7 +264,7 @@
   <script src="lib/lightbox/js/lightbox.min.js"></script>
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
-  <script src="js/drawplot.js"></script>
+
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
@@ -276,5 +273,47 @@
   <script defer src="/__/firebase/init.js"></script>
 
   <!-- <script src="js/drawplot.js"></script> -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  
+  firebase.database().ref('/').limitToLast(50).on('value', snapshot => {
+    // updateStarCount(postElement, snapshot.val());
+    var formattedTime;
+    var latest_update;
+    let data = snapshot.val();
+    
+    let arr1 = []; 
+    let arr2 = []; 
+    let time = [];
+    let humidity = [];
+    let pressure = [];
+    Object.keys(data).forEach((key) => {
+      var a = new Date(data[key].time*1000);
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      var year = a.getFullYear();
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      formattedTime = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+
+      arr1.push(data[key].bmp.temp);
+      arr2.push(data[key].dht.temp);
+      humidity.push(data[key].dht.hum);
+      pressure.push(data[key].bmp.press);
+      time.push(formattedTime);
+
+      latest_update = "Latest update data: " + formattedTime;
+      
+    });
+
+    document.getElementById("latest").innerHTML= latest_update;
+
+  });
+});
+</script>
+
 </body>
 </html>

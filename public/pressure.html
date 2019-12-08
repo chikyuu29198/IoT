@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Visualize data</title>
+  <title>Visualize Pressure</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -24,19 +24,21 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: Rapid
-    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+  <style>
+    canvas {
+      margin: 0 auto;
+      /* width: 800px !important;
+      height: 500px !important; */
+      background: #fff;
+    }
+  </style>
 </head>
 
 <body>
-    <canvas id="chart3"></canvas>
+
+    <canvas id="chart3"></canvas> 
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
 
   <!-- JavaScript Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
@@ -53,7 +55,6 @@
   <script src="lib/lightbox/js/lightbox.min.js"></script>
   <!-- Contact Form JavaScript File -->
   <script src="contactform/contactform.js"></script>
-  <script src="js/drawplot.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
@@ -62,5 +63,95 @@
   <script defer src="/__/firebase/init.js"></script>
 
   <!-- <script src="js/drawplot.js"></script> -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  
+  firebase.database().ref('/').limitToLast(50).on('value', snapshot => {
+    // updateStarCount(postElement, snapshot.val());
+    var formattedTime;
+    var latest_update;
+    let data = snapshot.val();
+    
+    let arr1 = []; 
+    let arr2 = []; 
+    let time = [];
+    let humidity = [];
+    let pressure = [];
+    Object.keys(data).forEach((key) => {
+      var a = new Date(data[key].time*1000);
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      var year = a.getFullYear();
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      formattedTime = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+
+      arr1.push(data[key].bmp.temp);
+      arr2.push(data[key].dht.temp);
+      humidity.push(data[key].dht.hum);
+      pressure.push(data[key].bmp.press);
+      time.push(formattedTime);
+
+      // latest_update = "Latest update data: " + formattedTime;
+      
+    });
+
+// document.getElementById("latest").innerHTML= latest_update;
+
+    let chartConfig3 = {
+      type: 'line',
+      data: {
+        labels: time,
+        datasets: [{
+          label: 'GY68 - BMP180',
+          backgroundColor: 'red',
+          borderColor: 'red',
+          data: pressure,
+          fill: false,
+        }]
+      },
+      options: {
+        responsive: true,
+        
+        title: {
+          display: true,
+          text: 'Pressure Line Chart'
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Time'
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Pa '
+            }
+          }]
+        }
+      }
+    }; 
+
+    let ctx3 = document.getElementById("chart3").getContext('2d');
+    let chart3 = new Chart(ctx3, chartConfig3);
+ 
+  });
+});
+</script>
 </body>
 </html>
