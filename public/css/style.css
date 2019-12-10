@@ -49,7 +49,10 @@ h6 {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin: 0 0 20px 0;
-  padding: 0;
+ 
+}
+.team-content {
+  padding-left: 100px;
 }
 
 /* Back to top button */
@@ -69,6 +72,10 @@ h6 {
   bottom: 15px;
   transition: background 0.5s;
   z-index: 11;
+}
+.btn-chart {
+  width: 400px;
+  margin-top: 10px;
 }
 
 .back-to-top i {
@@ -238,6 +245,8 @@ h6 {
 
 #intro .intro-info .btn-get-started,
 #intro .intro-info .btn-services {
+  width: 180px;
+  text-align: center;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 600;
@@ -250,6 +259,10 @@ h6 {
   color: #fff;
   background: #1bb1dc;
   color: #fff;
+  
+}
+.btn-get-started:hover{
+
 }
 
 #intro .intro-info .btn-get-started:hover,

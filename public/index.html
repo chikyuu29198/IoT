@@ -79,9 +79,51 @@
       <div class="row justify-content-center align-self-center">
         <div class="col-md-6 intro-info order-md-first order-last">
           <h2>Visualize Data<br>for Your <span>Devices!</span></h2>
-          <div>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          <div class="btn-chart" data-toggle="tooltip" data-placement="top" title="Visualize pressure data from GY68 - BMP180 digital barometric pressure sensor by time-series chart.">
+            <script language="javascript">
+              var popupWindow = null;
+              function centeredPopup1(url,winName,w,h,scroll){
+              LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+              TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+              settings =
+              'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+              popupWindow = window.open(url,winName,settings)
+              }
+              </script>
+              <a href="pressure.html" width="300" class="btn-get-started scrollto" onclick="centeredPopup1(this.href,'pressure','800','500','no');return false">Pressure</a>
           </div>
+          <div class="btn-chart" data-toggle="tooltip" data-placement="top" title="Visualize temperature data from DHT22 and GY68 - BMP180 sensor by time-series chart.">
+            <script language="javascript">
+              var popupWindow = null;
+              function centeredPopup2(url,winName,w,h,scroll){
+              LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+              TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+              settings =
+              'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+              popupWindow = window.open(url,winName,settings)
+              }
+              </script>
+              <a href="temperature.html"  width="300" class="btn-get-started scrollto" onclick="centeredPopup2(this.href,'temperature','800','500','no');return false">Temperature</a>
+          </div>
+          <div class="btn-chart" data-toggle="tooltip" data-placement="top" title="Visualize humidity data from DHT22 temperature humidity sensor by time-series chart.">
+            <script language="javascript">
+              var popupWindow = null;
+              function centeredPopup3(url,winName,w,h,scroll){
+              LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+              TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+              settings =
+              'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+              popupWindow = window.open(url,winName,settings)
+              }
+              </script>
+              <a href="humidity.html" width="300" class="btn-get-started scrollto" onclick="centeredPopup3(this.href,'humidity','800','500','no');return false">Humidity</a>
+          </div>
+          <script>
+            $(document).ready(function(){
+              $('[data-toggle="tooltip"]').tooltip();   
+            });
+            </script>
+          
         </div>
   
         <div class="col-md-6 intro-img order-md-last order-first">
@@ -189,29 +231,39 @@
     
               <div class="testimonial-item">
                 <img src="img/thach-nt.jpg" class="testimonial-img" alt="">
-                <h3>Thach Nguyen Hoang</h3>
-                <h4>Team Leader</h4>
-                <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                </p>
+                <div class="team-content">
+                  <h3 >Nguyen Hoang Thach</h3>
+                  <p>
+                    Team leader <br/>
+                    Student code: <br/>
+                    Class: K61-CB
+                  </p>
+                </div>
               </div>
     
               <div class="testimonial-item">
                 <img src="img/chi-vn.jpg" class="testimonial-img" alt="">
-                <h3>Chi Vu Ngoc</h3>
-                <h4>Team member</h4>
-                <p>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                </p>
+                <div class="team-content">
+                  <h3 >Vu Ngoc Chi</h3>
+                  <p>
+                    Team memmer <br/>
+                    Student code: 16020853 <br/>
+                    Class: K61-C-CLC
+                  </p>
+                </div>
               </div>
     
               <div class="testimonial-item">
                 <img src="img/hoa-ltt.jpg" class="testimonial-img" alt="">
-                <h3>Hoa Le Thi Thanh</h3>
-                <h4>Team member</h4>
-                <p>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                </p>
+                <div class="team-content">
+                  <h3 >Le Thi Thanh Hoa</h3>
+                  <p>
+                    Team memmer <br/>
+                    Student code: <br/>
+                    Class: K61-C-CLC
+                  </p>
+                </div>
+               
               </div>
 
             </div>
