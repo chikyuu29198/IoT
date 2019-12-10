@@ -1,371 +1,263 @@
+<!--
+
+=========================================================
+* Argon Dashboard - v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>Visualize data</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-
-  <!-- Favicons -->
-  <link href="img/visualizeIcon.jpg" rel="visualizeIcon">
-  <link href="img/visualizeIcon.jpg" rel="visualizeIcon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: Rapid
-    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Visualize Data
+  </title>
+  <!-- Favicon -->
+  <link href="./assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="./assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="./assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="./assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
 </head>
 
-<body>
-  <!--==========================
-  Header
-  ============================-->
-  <header id="header">
-
-    <div id="topbar">
-      <div class="container">
-        <div class="social-links">
-          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-          <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-
-      <div class="logo float-left">
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <h1 class="text-light"><a href="#intro" class="scrollto"><span>WhoAmI</span></a></h1>
-        <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
-      </div>
-
-      <nav class="main-nav float-right d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="#intro">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#team">Our Team</a></li>
+<body class="">
+    <script defer src="/__/firebase/7.5.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.5.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+ 
+      
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">Whoami</a>
+        <!-- User -->
+        <ul class="navbar-nav align-items-center d-none d-md-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="media align-items-center">
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm  font-weight-bold" id="span1" >Latest update data: </span>
+                </div>
+              </div>
+            </a>
+          </li>
         </ul>
-      </nav><!-- .main-nav -->
-      
-    </div>
-  </header><!-- #header -->
-
-  <!--==========================
-    Intro Section
-  ============================-->
-  <section id="intro" class="clearfix">
-    <div class="container d-flex h-100">
-      <div class="row justify-content-center align-self-center">
-        <div class="col-md-6 intro-info order-md-first order-last">
-          <h2>Visualize Data<br>for Your <span>Devices!</span></h2>
-          <div class="btn-chart" data-toggle="tooltip" data-placement="top" title="Visualize pressure data from GY68 - BMP180 digital barometric pressure sensor by time-series chart.">
-            <script language="javascript">
-              var popupWindow = null;
-              function centeredPopup1(url,winName,w,h,scroll){
-              LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
-              TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
-              settings =
-              'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
-              popupWindow = window.open(url,winName,settings)
-              }
-              </script>
-              <a href="pressure.html" width="300" class="btn-get-started scrollto" onclick="centeredPopup1(this.href,'pressure','800','500','no');return false">Pressure</a>
-          </div>
-          <div class="btn-chart" data-toggle="tooltip" data-placement="top" title="Visualize temperature data from DHT22 and GY68 - BMP180 sensor by time-series chart.">
-            <script language="javascript">
-              var popupWindow = null;
-              function centeredPopup2(url,winName,w,h,scroll){
-              LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
-              TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
-              settings =
-              'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
-              popupWindow = window.open(url,winName,settings)
-              }
-              </script>
-              <a href="temperature.html"  width="300" class="btn-get-started scrollto" onclick="centeredPopup2(this.href,'temperature','800','500','no');return false">Temperature</a>
-          </div>
-          <div class="btn-chart" data-toggle="tooltip" data-placement="top" title="Visualize humidity data from DHT22 temperature humidity sensor by time-series chart.">
-            <script language="javascript">
-              var popupWindow = null;
-              function centeredPopup3(url,winName,w,h,scroll){
-              LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
-              TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
-              settings =
-              'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
-              popupWindow = window.open(url,winName,settings)
-              }
-              </script>
-              <a href="humidity.html" width="300" class="btn-get-started scrollto" onclick="centeredPopup3(this.href,'humidity','800','500','no');return false">Humidity</a>
-          </div>
-          <script>
-            $(document).ready(function(){
-              $('[data-toggle="tooltip"]').tooltip();   
-            });
-            </script>
-          
-        </div>
-  
-        <div class="col-md-6 intro-img order-md-last order-first">
-          <img src="img/intro-img.svg" alt="" class="img-fluid">
-        </div>
       </div>
-
-    </div>
-  </section><!-- #intro -->
-
-  <main id="main">
-
-        <!--==========================
-      Services Section
-    ============================-->
-    <section id="services" class="section-bg">
-        <div class="container">
-  
-          <header class="section-header">
-            <h3>Services</h3>
-            <p>Visualize the Internet of Things.</p>
-            <p id="latest"></p>
-          </header>
-  
+    </nav>
+    <!-- End Navbar -->
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+        <div class="header-body">
+          <!-- Card stats -->
           <div class="row">
-  
-            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-              <div class="box">
-                <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
-                  <h4 class="title">
-                    <script language="javascript">
-                      var popupWindow = null;
-                      function centeredPopup1(url,winName,w,h,scroll){
-                      LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
-                      TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
-                      settings =
-                      'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
-                      popupWindow = window.open(url,winName,settings)
-                      }
-                      </script>
-                      <p><a href="pressure.html" onclick="centeredPopup1(this.href,'pressure','800','500','no');return false">Pressure</a></p>
-                  </h4>
-                <p class="description">Visualize pressure data from GY68 - BMP180 digital barometric pressure sensor by time-series chart.</p>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Temperature of DHT22</h5>
+                      <span id = "tempDHT22" class="h2 font-weight-bold mb-0"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                        <i class="fas fa-chart-bar"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> </span>
+                    <span class="text-nowrap"></span>
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-              <div class="box">
-                <div class="icon" style="background: #fff0da;"><i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i></div>
-                <h4 class="title">
-                    <script language="javascript">
-                      var popupWindow = null;
-                      function centeredPopup2(url,winName,w,h,scroll){
-                      LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
-                      TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
-                      settings =
-                      'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
-                      popupWindow = window.open(url,winName,settings)
-                      }
-                      </script>
-                      <p><a href="temperature.html" onclick="centeredPopup2(this.href,'temperature','800','500','no');return false">Temperature</a></p>
-                  </h4>
-                <p class="description">Visualize temperature data from DHT22 and GY68 - BMP180 sensor by time-series chart.</p>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Temperature of GY68 - BMP180</h5>
+                      <span  id = "tempBMP180" class="h2 font-weight-bold mb-0"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                        <i class="fas fa-chart-pie"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i>\</span>
+                    <span class="text-nowrap"></span>
+                  </p>
+                </div>
               </div>
             </div>
-  
-            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-              <div class="box">
-                <div class="icon" style="background: #e6fdfc;"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
-                <h4 class="title">
-                    <script language="javascript">
-                      var popupWindow = null;
-                      function centeredPopup3(url,winName,w,h,scroll){
-                      LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
-                      TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
-                      settings =
-                      'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
-                      popupWindow = window.open(url,winName,settings)
-                      }
-                      </script>
-                      <p><a href="humidity.html" onclick="centeredPopup3(this.href,'humidity','800','500','no');return false">Humidity</a></p>
-                  </h4>
-                <p class="description">Visualize humidity data from DHT22 temperature humidity sensor by time-series chart.</p>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Humidity</h5>
+                      <span id = "hum" class="h2 font-weight-bold mb-0"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                        <i class="fas fa-users"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> /span>
+                    <span class="text-nowrap">/span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Pressure</h5>
+                      <span id = "press" class="h2 font-weight-bold mb-0"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                        <i class="fas fa-percent"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> </span>
+                    <span class="text-nowrap"></span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-  
         </div>
-      </section><!-- #services -->
-
-
-    <!--==========================
-      Team Section
-    ============================-->
-    <section id="team">
-      <div class="container">
-
-        <header class="section-header">
-          <h3>Our Team</h3>
-        </header>
-
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-
-            <div class="owl-carousel testimonials-carousel wow fadeInUp">
-    
-              <div class="testimonial-item">
-                <img src="img/thach-nt.jpg" class="testimonial-img" alt="">
-                <div class="team-content">
-                  <h3 >Nguyen Hoang Thach</h3>
-                  <p>
-                    Team leader <br/>
-                    Student code: <br/>
-                    Class: K61-CB
-                  </p>
-                </div>
-              </div>
-    
-              <div class="testimonial-item">
-                <img src="img/chi-vn.jpg" class="testimonial-img" alt="">
-                <div class="team-content">
-                  <h3 >Vu Ngoc Chi</h3>
-                  <p>
-                    Team memmer <br/>
-                    Student code: 16020853 <br/>
-                    Class: K61-C-CLC
-                  </p>
-                </div>
-              </div>
-    
-              <div class="testimonial-item">
-                <img src="img/hoa-ltt.jpg" class="testimonial-img" alt="">
-                <div class="team-content">
-                  <h3 >Le Thi Thanh Hoa</h3>
-                  <p>
-                    Team memmer <br/>
-                    Student code: <br/>
-                    Class: K61-C-CLC
-                  </p>
-                </div>
-               
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-
-      </div>
-    </section><!-- #testimonials -->
-
-  </main>
-
-  <!--==========================
-    Footer
-  ============================-->
-  <footer id="footer" class="section-bg">
-    <div class="container">
-      <div class="copyright">
-        &copy; 2019-VNU University of Engineering and Technology
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
-        -->
-        Address: E3, 144 Xuanthuy, Caugiay, Hannoi
       </div>
     </div>
-  </footer><!-- #footer -->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
-
-  <!-- JavaScript Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/mobile-nav/mobile-nav.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/counterup/counterup.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="lib/lightbox/js/lightbox.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
-
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
-  <script defer src="/__/firebase/7.5.0/firebase-app.js"></script>
-  <script defer src="/__/firebase/7.5.0/firebase-database.js"></script>
-  <script defer src="/__/firebase/init.js"></script>
-
-  <!-- <script src="js/drawplot.js"></script> -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-  
-  firebase.database().ref('/').limitToLast(50).on('value', snapshot => {
-    // updateStarCount(postElement, snapshot.val());
-    var formattedTime;
-    var latest_update;
-    let data = snapshot.val();
-    
-    let arr1 = []; 
-    let arr2 = []; 
-    let time = [];
-    let humidity = [];
-    let pressure = [];
-    Object.keys(data).forEach((key) => {
-      var a = new Date(data[key].time*1000);
-      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      var year = a.getFullYear();
-      var month = months[a.getMonth()];
-      var date = a.getDate();
-      var hour = a.getHours();
-      var min = a.getMinutes();
-      var sec = a.getSeconds();
-      formattedTime = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-
-      arr1.push(data[key].bmp.temp);
-      arr2.push(data[key].dht.temp);
-      humidity.push(data[key].dht.hum);
-      pressure.push(data[key].bmp.press);
-      time.push(formattedTime);
-
-      latest_update = "Latest update data: " + formattedTime;
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-xl-8 mb-5 mb-xl-0" id="plot">
+          <div class="card bg-gradient-default shadow">
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
+                  <h2 class="text-white mb-0">Sales value</h2>
+                </div>
+                <div class="col">
+                  <ul class="nav nav-pills justify-content-end">
+                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
+                      <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                        <span class="d-none d-md-block">Month</span>
+                        <span class="d-md-none">M</span>
+                      </a>
+                    </li>
+                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
+                      <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                        <span class="d-none d-md-block">Week</span>
+                        <span class="d-md-none">W</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>temp_dht
+            </div>
+            <div class="card-body">
+              <!-- Chart -->
+              <div class="chart">
+                <!-- Chart wrapper -->
+                <canvas id="chart-sales" class="chart-canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
       
+      firebase.database().ref('/').limitToLast(50).on('value', snapshot => {
+        // updateStarCount(postElement, snapshot.val());
+        var formattedTime;
+        var latest_update;
+        var lastest_temp_dht;
+        var lastest_temp_bmp;
+        var lastest_hum;
+        var lastest_press;
+        let data = snapshot.val();
+        
+        let arr1 = []; 
+        let arr2 = []; 
+        let time = [];
+        let humidity = [];
+        let pressure = [];
+        Object.keys(data).forEach((key) => {
+          var a = new Date(data[key].time*1000);
+          var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          var year = a.getFullYear();
+          var month = months[a.getMonth()];
+          var date = a.getDate();
+          var hour = a.getHours();
+          var min = a.getMinutes();
+          var sec = a.getSeconds();
+          formattedTime = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    
+          arr1.push(data[key].bmp.temp);
+          arr2.push(data[key].dht.temp);
+          humidity.push(data[key].dht.hum);
+          pressure.push(data[key].bmp.press);
+          time.push(formattedTime);
+          
+        });
+        var arr_length = time.length -1 ;
+        latest_update = "Latest update data: " + time[arr_length];
+        lastest_temp_dht = arr2[arr_length];
+        lastest_temp_bmp = arr1[arr_length];
+        lastest_hum = humidity[arr_length];
+        lastest_press = pressure[arr_length];
+        document.getElementById("span1").innerHTML= latest_update;
+        document.getElementById("tempDHT22").innerHTML = lastest_temp_dht;
+        document.getElementById("tempBMP180").innerHTML = lastest_temp_bmp;
+        document.getElementById("hum").innerHTML = lastest_hum;
+        document.getElementById("press").innerHTML = lastest_press;
+    
+      });
     });
-
-    document.getElementById("latest").innerHTML= latest_update;
-
-  });
-});
-</script>
-
+    </script>
+    
+    <!-- var spantext = document.getElementById("span1");
+    spantext.innerHTML= spantext.innerHTML+time[1]; -->
+    <!-- </script> -->
+  <!--   Core   -->
+  <script src="./assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!--   Optional JS   -->
+  <script src="./assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+  <script src="./assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+  <!--   Argon JS   -->
+  <script src="./assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
 </body>
+
 </html>
